@@ -65,8 +65,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
      */
     public static final String AUTHORIZATION_CODE = "authorization_code";
     /**
-     * 授权模式
-     * refresh_token 模式
+     * refresh_token
      */
     public static final String REFRESH_TOKEN = "refresh_token";
     /**
@@ -74,6 +73,11 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
      * 简化授权模式
      */
     public static final String IMPLICIT = "implicit";
+    /**
+     * 授权模式
+     * 客户端模式
+     */
+    public static final String CLIENT_CREDENTIALS = "client_credentials";
     /**
      * 指定哪些资源是需要授权验证的
      */
@@ -105,7 +109,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 //刷新令牌的时效
                 .refreshTokenValiditySeconds(REFRESH_TOKEN_VALIDITY_SECONDS)
                 //允许授权的类型
-                .authorizedGrantTypes(AUTHORIZATION_CODE, REFRESH_TOKEN);
+                .authorizedGrantTypes(AUTHORIZATION_CODE, REFRESH_TOKEN, IMPLICIT, GRANT_TYPE_PASSWORD, CLIENT_CREDENTIALS);
     }
 
     /**
